@@ -121,7 +121,7 @@ print_user_desc(struct tcb *const tcp, const kernel_ulong_t addr,
 		}
 # endif /* HAVE_STRUCT_USER_DESC_LM */
 
-		tprints("}");
+		tprint_struct_end();
 	}
 }
 

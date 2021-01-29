@@ -40,7 +40,7 @@ SYS_FUNC(uname)
 		tprint_struct_next();
 		PRINT_FIELD_CSTRING(uname, domainname);
 #endif
-		tprints("}");
+		tprint_struct_end();
 	}
 
 	return 0;
