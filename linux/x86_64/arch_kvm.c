@@ -13,10 +13,10 @@ arch_print_kvm_regs(struct tcb *const tcp,
 {
 	tprint_struct_begin();
 	PRINT_FIELD_X(*regs, rax);
-	if (abbrev(tcp))
-		tprints(", ...");
-	else {
-		tprint_struct_next();
+	tprint_struct_next();
+	if (abbrev(tcp)) {
+		tprint_more_data_follows();
+	} else {
 		PRINT_FIELD_X(*regs, rbx);
 		tprint_struct_next();
 		PRINT_FIELD_X(*regs, rcx);
@@ -31,10 +31,10 @@ arch_print_kvm_regs(struct tcb *const tcp,
 	PRINT_FIELD_X(*regs, rsp);
 	tprint_struct_next();
 	PRINT_FIELD_X(*regs, rbp);
-	if (abbrev(tcp))
-		tprints(", ...");
-	else {
-		tprint_struct_next();
+	tprint_struct_next();
+	if (abbrev(tcp)) {
+		tprint_more_data_follows();
+	} else {
 		PRINT_FIELD_X(*regs, r8);
 		tprint_struct_next();
 		PRINT_FIELD_X(*regs, r9);

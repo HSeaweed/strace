@@ -292,8 +292,10 @@ SYS_FUNC(ptrace)
 			printflags64(seccomp_filter_flags, flags,
 				     "SECCOMP_FILTER_FLAG_???");
 
-			if ((kernel_ulong_t) tcp->u_rval > ret_size)
-				tprints(", ...");
+			if ((kernel_ulong_t) tcp->u_rval > ret_size) {
+				tprint_struct_next();
+				tprint_more_data_follows();
+			}
 
 			tprint_struct_end();
 			break;
